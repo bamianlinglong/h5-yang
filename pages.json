@@ -112,6 +112,11 @@
 			"style": {
 				"navigationBarTitleText": "修改简历"
 			}
+		}, {
+			"path": "pages/my-resume/employer",
+			"style": {
+				"navigationBarTitleText": "成为招聘方"
+			}
 		}
 	],
 	"globalStyle": {
