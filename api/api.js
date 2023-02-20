@@ -129,3 +129,8 @@ export const detailsMeList = data => {
 export const bannerList = data => {
 	return requset('/api/advertising/list', data, 'get')
 }
+
+// 用户信息
+export const getInfo = data => {
+	return requset('/api/user/info', data, 'get')
+}

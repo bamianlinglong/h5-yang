@@ -88,7 +88,7 @@ import { ref } from 'vue'
 import { onLoad, onShow, onReachBottom } from '@dcloudio/uni-app'
 import { Uploader, Popup, Icon,CellGroup, Field } from 'vant'
 import { EDIT_RESUME } from '@/common/path'
-import { resumeDetails, preview, refuseResume, passResume } from '@/api/api'
+import { resumeDetails, preview, refuseResume, passResume, getInfo } from '@/api/api'
 
 const detail = ref({})
 const userInfo = uni.getStorageSync('userinfo')
@@ -130,6 +130,12 @@ const refuse = async () => {
 	await refuseResume({ id: id.value }).then(res => {
 		uni.showToast({ title: '拒绝成功', icon: 'none', mask: true })
 		getDetails(id.value)
+	})
+}
+
+const getUserInfo = async () => {
+	await getInfo().then(res => {
+		
 	})
 }
 
