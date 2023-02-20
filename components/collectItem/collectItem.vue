@@ -32,7 +32,7 @@
 						<text class="iconfont icon-address m-r5"></text>
 						<text>{{ item.posts.job_address }}</text>
 					</view>
-					<view class="m-t10 item-text-fen">{{ formatKm(item.distance) }}</view>
+					<view class="m-t10 item-text-fen">{{ formatKm(item.posts.distance) }}</view>
 				</view>
 			</view>
 		</view>

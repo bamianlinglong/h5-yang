@@ -11,10 +11,8 @@ export const debounce = (fn, time) => {
 }
 
 export const formatKm = (d) => {
-	// if (d < 1000) {
-	// 	return d + 'm'
-	// }
-	return d <= 10000 ? d + 'm' : (d / 1000).toFixed(2) + 'km' 
+	const dis = typeof d == 'string' ? Number(d) : d
+	return dis <= 10000 ? dis + 'm' : (dis / 1000).toFixed(2) + 'km' 
 }
 
 export const formatTime = (time, format) => {
