@@ -22,8 +22,8 @@ import { login } from '@/api/api'
 
 const loginForm = ref(null)
 const formState = reactive({
-	account: 'maolvxiansheng',
-	password: '123456'
+	account: '',
+	password: ''
 })
 
 const rules = reactive({
