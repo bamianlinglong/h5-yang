@@ -1,0 +1,157 @@
+@mixin flex-box($align-items: center, $justify-content: center, $flex-direction: row) {
+	display: flex;
+	align-items: $align-items;
+	justify-content: $justify-content;
+	flex-direction: $flex-direction;
+}
+.p40 {
+	padding: 40rpx;
+}
+.p-b40 {
+	padding-bottom: 40rpx;
+}
+.p-b20 {
+	padding-bottom: 20rpx;
+}
+.p-lr30 {
+	padding: 0 30rpx;
+}
+.p-t30 {
+	padding-top: 30rpx;
+}
+.p-t10 {
+	padding-top: 10rpx;
+}
+.p-t20 {
+	padding-top: 20rpx;
+}
+.p-lr20 {
+	padding: 0 20rpx;
+}
+.m-r10 {
+	margin-right: 10rpx;
+}
+.m-r5 {
+	margin-right: 5rpx;
+}
+.m-t40 {
+	margin-top: 40rpx;
+}
+.m-t30 {
+	margin-top: 30rpx;
+}
+.m-r16 {
+	margin: 16rpx;
+}
+.m-r13 {
+	margin-right: 13rpx;
+}
+.m-r30 {
+	margin-right: 30rpx;
+}
+.m-t20 {
+	margin-top: 20rpx;
+}
+.m-t10 {
+	margin-top: 10rpx;
+}
+.m-lr30 {
+	margin: 0 30rpx;
+}
+.m-r10 {
+	margin-right: 10rpx;
+}
+.m-b20 {
+	margin-bottom: 20rpx;
+}
+.m-t24 {
+	margin-top: 24rpx;
+}
+.t-c {
+	text-align: center;
+}
+.text-overflow {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+// 小标签样式
+.tips {
+	height: 30rpx;
+	font-size: 20rpx;
+	padding: 0 10rpx;
+	border: 1rpx solid #FFAA00;
+	border-radius: 4rpx 0 4rpx 0;
+	color: #FFAA00;
+}
+.tips-1 {
+	color: #2CC998;
+	border-color: #2CC998;
+}
+// 灰色小标签样式
+.grey-tips {
+	height: 44rpx;
+	font-size: 24rpx;
+	padding: 0 10rpx;
+	border-radius: 4rpx;
+	color: #333;
+	background-color: #F8F8F8;
+	line-height: 44rpx;
+}
+// 边框
+.border {
+	border-bottom: 10rpx solid #eee;
+}
+// 底部按钮
+.blue-btn {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 98rpx;
+	line-height: 98rpx;
+	border-top: 1rpx solid #eee;
+	@include flex-box($justify-content: space-between);
+	background-color: #fff;
+	
+	& > view {
+		height: 72rpx;
+		font-size: 30rpx;
+		text-align: center;
+		line-height: 72rpx;
+		border-radius: 10rpx;
+	}
+	.left {
+		width: 220rpx;
+		color: #2CC998;
+		background-color: rgba(44, 201, 152, .2);
+	}
+	.right {
+		width: 450rpx;
+		height: 72rpx;
+		color: #fff;
+		background-color: #2CC998;
+		border-color: transparent;
+		border-radius: 10rpx;
+	}
+}
+
+
+
+/* #ifdef H5 */
+:deep(uni-scroll-view .uni-scroll-view::-webkit-scrollbar) {
+	display: none;
+	width: 0 !important;
+	height: 0 !important;
+	-webkit-appearance: none;
+	background: transparent;
+	color: transparent;
+}
+:deep(::-webkit-scrollbar) {
+	display: none;
+	width: 0 !important;
+	height: 0 !important;
+	-webkit-appearance: none;
+	background: transparent;
+}
+/* #endif */
