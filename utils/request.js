@@ -1,16 +1,18 @@
 import { baseUrl } from './config'
 import { LOGIN } from '@/common/path'
  // application/x-www-form-urlencoded   application/json
+ const baseEnv = process.env.NODE_ENV
 export const requset = (url, data, method = 'get', contentType = 'application/json') => {
 	return new Promise((resolve, reject) => {
 		const header = {
 			'content-type': contentType
 		}
+		// const baseEnv = process.env.NODE_ENV
 		const token = uni.getStorageSync('token')
 		token ? header['Token'] = token : ''
 		uni.showLoading({ title: '加载中', mask: true })
 		uni.request({
-			url: baseUrl + url,
+			url: baseUrl[baseEnv] + url,
 			data: data,
 			method: method,
 			header: header,

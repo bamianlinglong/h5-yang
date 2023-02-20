@@ -55,7 +55,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-import { onLoad } from '@dcloudio/uni-app'
+import { onLoad, onShow } from '@dcloudio/uni-app'
 import MenuItem from './components/menuItem'
 import Menu from './components/menu'
 import { 
@@ -67,6 +67,7 @@ import {
 	MY_RESUME, 
 	WANT_RECRUITMENT, 
 	RECRUITMENT,
+	LOGIN
 } from '@/common/path'
 
 const userinfo = ref({})
@@ -109,9 +110,19 @@ const list1 = [
 ]
 
 
-onLoad(() => {
+onShow(() => {
 	userinfo.value = uni.getStorageSync('userinfo')
-	// console.log(userinfo.value)
+	if (!userinfo.value) {
+		uni.showToast({
+			title: '请先登录获取用户信息',
+			mask: true,
+			icon: 'none'
+		})
+		setTimeout(() => {
+			uni.navigateTo({ url: LOGIN })
+		}, 1500)
+		return
+	}
 })
 
 const handleOpen = () => {
