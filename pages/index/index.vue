@@ -1,9 +1,12 @@
 <template>
 	<navbar @input='handleSearch' />
 	<view class="index-top"></view>
-	<view class="index-img">
-		<image src="/static/icon/banner.jpg"></image>
-	</view>
+	<view class="m-t20"></view>
+	<swiper circular autoplay class="index-img">
+		<swiper-item class="index-img" v-for="item in banner" :key="item.id">
+			<image :src="item.image_text"></image>
+		</swiper-item>
+	</swiper>
 	<view class="p-lr30 m-t40 index-tab">
 		<view class="index-tab-menu" v-for="item in menuList" :key="item.code" @tap="handleMenu(item.url)">
 			<image :src="item.imgurl" mode="aspectFit"></image>
@@ -47,13 +50,14 @@
 import { ref, reactive } from 'vue'
 import { onLoad, onReachBottom, onReady } from '@dcloudio/uni-app'
 import { DropdownMenu, DropdownItem } from 'vant'
-import { getPotos } from '@/api/api'
+import { getPotos, bannerList } from '@/api/api'
 import { JOB_LIST, JOB_DETAIL } from '@/common/path'
 import { tabs, typeList } from '@/utils/emnu'
 import { getLocalAddress } from '@/utils/index'
 
 const potos = ref([])
 const recommend = ref([])
+const banner = ref([])
 const no_more = ref(false)
 const tab = ref('')
 const tabOptions = ref(tabs)
@@ -99,6 +103,7 @@ const menuList = [
 onLoad(() => {
 	getPotosList()
 	getRecommend('recommend')
+	getBanner()
 })
 
 const getPotosList = async () => {
@@ -116,6 +121,12 @@ const getRecommend = async (name) => {
 	query.flag = name
 	await getPotos(query).then(res => {
 		recommend.value = res.data.data
+	})
+}
+
+const getBanner = async () => {
+	await bannerList({ type: 10, limit: 5 }).then(res => {
+		banner.value = res.data.data
 	})
 }
 
@@ -161,6 +172,10 @@ onReachBottom(() => {
 
 <style lang="scss" scoped>
 .index-top {
+	position: absolute;
+	top: 88rpx;
+	left: 0;
+	right: 0;
 	height: 217rpx;
 	background-color: $public-color;
 	border-radius: 0 0 2000% 2000%;
@@ -169,7 +184,7 @@ onReachBottom(() => {
 	width: 690rpx;
 	height: 280rpx;
 	background-color: #fff;
-	margin: -180rpx auto 0 auto;
+	margin: 0 auto;
 	
 	image {
 		width: 100%;

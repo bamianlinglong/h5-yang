@@ -124,3 +124,8 @@ export const editMeList = data => {
 export const detailsMeList = data => {
 	return requset('/api/my_center.posts/details', data, 'get')
 }
+
+// bannber
+export const bannerList = data => {
+	return requset('/api/advertising/list', data, 'get')
+}
