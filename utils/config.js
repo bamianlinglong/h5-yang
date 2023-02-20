@@ -1,1 +1,1 @@
-export const baseUrl = 'http://maolvxiansheng.gnway.cc'  // http://gaginang.gnway.cc   http://maolvxiansheng.gnway.cc
+export const baseUrl = 'http://www.thesis.test'  // http://gaginang.gnway.cc   http://maolvxiansheng.gnway.cc  http://www.thesis.test/
