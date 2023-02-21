@@ -1,7 +1,7 @@
 import { baseUrl } from './config'
 import { LOGIN } from '@/common/path'
  // application/x-www-form-urlencoded   application/json
- const baseEnv = process.env.NODE_ENV
+const baseEnv = process.env.NODE_ENV
 export const requset = (url, data, method = 'get', contentType = 'application/json') => {
 	return new Promise((resolve, reject) => {
 		const header = {

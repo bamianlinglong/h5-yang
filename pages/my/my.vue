@@ -58,6 +58,7 @@ import { reactive, ref } from 'vue'
 import { onLoad, onShow } from '@dcloudio/uni-app'
 import MenuItem from './components/menuItem'
 import Menu from './components/menu'
+import { getInfo } from '@/api/api'
 import { 
 	MESSAGE, 
 	FEEDBACK, 
@@ -67,7 +68,9 @@ import {
 	MY_RESUME, 
 	WANT_RECRUITMENT, 
 	RECRUITMENT,
-	LOGIN
+	LOGIN,
+	EMPLOYER,
+	EDIT_RESUME
 } from '@/common/path'
 
 const userinfo = ref({})
@@ -123,7 +126,16 @@ onShow(() => {
 		}, 1500)
 		return
 	}
+	getUserInfo()
 })
+
+const getUserInfo = async () => {
+	await getInfo().then(res => {
+		userinfo.value = res.data
+		list[0].url = res.data.resume.is_exist ? MY_RESUME : EDIT_RESUME
+		list1[0].url = res.data.company.is_exist ? WANT_RECRUITMENT : EMPLOYER
+	})
+}
 
 const handleOpen = () => {
 	// console.log('dsadad')

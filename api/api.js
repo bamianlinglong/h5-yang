@@ -134,3 +134,8 @@ export const bannerList = data => {
 export const getInfo = data => {
 	return requset('/api/user/info', data, 'get')
 }
+
+// 公司申请
+export const apply = data => {
+	return requset('/api/my_center.company/apply', data, 'post')
+}

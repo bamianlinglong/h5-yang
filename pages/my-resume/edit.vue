@@ -170,8 +170,9 @@ const updateImg = async (file) => {
 	formData.append('file', file)
 	// console.log(formData.get('file'))
 	const token = uni.getStorageSync('token')
+	const baseEnv = process.env.NODE_ENV
 	uni.uploadFile({
-		url: baseUrl + '/api/common/upload',
+		url: baseUrl[baseEnv] + '/api/common/upload',
 		filePath: file.content,
 		name: file.name,
 		header: { 'Token': token, 'Access-Control-Allow-Origin': '*' },
