@@ -136,3 +136,14 @@ export const posts_type_1 = [
 	{ code: 'failure', name: '被拒绝' },
 	{ code: 'succeed', name: '被录取' },
 ]
+
+export const company_type = [{
+	text: '国企',
+	value: 10
+},{
+	text: '民企',
+	value: 20
+},{
+	text: '外企',
+	value: 30
+}]
