@@ -11,13 +11,14 @@
 				</uni-forms-item>
 			</uni-forms>
 			<view class="t-c login-btn" @click="handleLogin">登录</view>
+			<view class="m-t10 t-c resiger-btn" @click="handleResiger">注册</view>
 		</view>
 	</view>
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue'
-import { INDEX } from '@/common/path'
+import { INDEX, REGISTER } from '@/common/path'
 import { login } from '@/api/api'
 
 const loginForm = ref(null)
@@ -49,8 +50,10 @@ const handleLogin = () => {
 			}, 1500)
 		})
 	})
-	
-	
+}
+
+const handleResiger = () => {
+	uni.navigateTo({ url: REGISTER })
 }
 </script>
 
@@ -75,12 +78,16 @@ page {
 		font-weight: 600;
 	}
 }
-.login-btn {
+.login-btn, .resiger-btn {
 	height: 80rpx;
 	font-size: 16rpx;
 	color: #fff;
 	background-color: #398ade;
 	border-radius: 10rpx;
 	line-height: 80rpx;
+}
+.resiger-btn {
+	background-color: #fff;
+	color: #333;
 }
 </style>

@@ -139,3 +139,8 @@ export const getInfo = data => {
 export const apply = data => {
 	return requset('/api/my_center.company/apply', data, 'post')
 }
+
+// 注册
+export const register = data => {
+	return requset('/api/user/register', data, 'post')
+}
