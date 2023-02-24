@@ -176,7 +176,7 @@ const edit = async () => {
 	await editMeList(posts.value).then(res => {
 		uni.showToast({ title: '更新成功', icon: 'none', mask: true })
 		setTimeout(() => {
-			uni.navigateBack({ delta: 1 })
+			navigateBackTo(1)
 		}, 1500)
 	})
 }

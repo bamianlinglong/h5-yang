@@ -69,6 +69,7 @@ import { CellGroup, Field,Checkbox, CheckboxGroup, Uploader, Form, Button  } fro
 import { company_type } from '@/utils/emnu'
 import { baseUrl } from '@/utils/config'
 import { apply } from '@/api/api'
+import { navigateBackTo } from '@/utils/index'
 
 const list = company_type
 
@@ -90,7 +91,6 @@ const readImg3 = (file) => {
 }
 
 const uploadImg = (file, index) => {
-	console.log(baseUrl)
 	const formData = new FormData()
 	formData.append('file', file)
 	const token = uni.getStorageSync('token')
@@ -133,10 +133,12 @@ const formSubmit = async () => {
 		return
 	}
 	company.value.company_license = uploadImg1.value.join(',')
+	const type = company.value.company_type.join(',')
+	company.value.company_type = JSON.parse(type)
 	await apply(company.value).then(res => {
 		uni.showToast({title: '申请成功', mask: true})
 		setTimeout(() => {
-			uni.navigateBack({ delta: 1 })
+			navigateBackTo(1)
 		}, 1500)
 	})
 }

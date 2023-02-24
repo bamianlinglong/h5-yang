@@ -111,6 +111,7 @@ import { EDIT_RESUME } from '@/common/path'
 import { hobbys, sex } from '@/utils/emnu'
 import { resumeDetails, classify, editResume } from '@/api/api'
 import { baseUrl } from '@/utils/config'
+import { navigateBackTo } from '@/utils/index'
 import { Field, Popup, Picker, Uploader } from 'vant'
 
 const sexs = sex
@@ -157,7 +158,7 @@ const handleSave = async () => {
 	await editResume(data).then(res => {
 		uni.showToast({ title: '编辑成功', icon: 'none', mask: true })
 		setTimeout(() => {
-			uni.navigateBack({ delta: 1 })
+			navigateBackTo(1)
 		},1500)
 	})
 }
@@ -183,7 +184,6 @@ const updateImg = async (file) => {
 				uploadImg.value.push(files.data.url)
 			}
 		}, fail(err) {
-			console.log(err)
 			uni.showToast({ title: '上传失败', icon: 'none', mask: true })
 		}
 	})
@@ -244,7 +244,7 @@ const cancelAddress = () => {
 
 const handleDetail = () => {
 	// uni.navigateTo({ url: EDIT_RESUME })
-	uni.navigateBack()
+	navigateBackTo(1)
 }
 </script>
 

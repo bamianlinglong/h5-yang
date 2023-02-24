@@ -61,3 +61,12 @@ export const findTypeName = (list, status) => {
 	const obj = list.find(item => item.code == status)
 	return obj.name
 }
+
+export const navigateBackTo = (param) => {
+	const pages = getCurrentPages()
+	if (pages.length == 1) {
+		typeof param == 'number' ? history.go(-param) : history.back()
+	} else {
+		uni.navigateBack({ delta: typeof param == 'number' ? param : 1})
+	}
+}
